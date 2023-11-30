@@ -7,17 +7,18 @@
     <div class="col-sm-6 auth-form-section">
       <div class="form-section">
         <div class="auth-wrapper">
-          <h2 class="welcome-msg"> Sign Up </h2>
-          <p class="auth-signup-text text-muted">Enter details to create your account</p>
+          <h2 class="welcome-msg"> 
+            Resgistrate</h2>
+          <p class="auth-signup-text text-muted">Ingrese los datos para crear su cuenta</p>
           <form class="validate-form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Username</mat-label>
+                  <mat-label>Nombre de usuario</mat-label>
                   <input matInput formControlName="username" required>
                   <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
                   <mat-error *ngIf="authForm.get('username')!.hasError('required')">
-                    Username is required
+                    Se requiere nombre de usuario
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -29,7 +30,7 @@
                   <input matInput formControlName="email" required>
                   <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>mail</mat-icon>
                   <mat-error *ngIf="authForm.get('email')!.hasError('required') || authForm.get('email')!.touched">
-                    Please enter a valid email address
+                    Por favor, introduce una dirección de email
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -37,12 +38,12 @@
             <div class="row">
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Password</mat-label>
+                  <mat-label>Contraseña</mat-label>
                   <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required>
                   <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="authForm.get('password')!.hasError('required')">
-                    Password is required
+                    Se requiere contraseña
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -50,31 +51,33 @@
             <div class="row">
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Confirm Password</mat-label>
+                  <mat-label>Confirmar contraseña</mat-label>
                   <input matInput formControlName="cpassword" [type]="chide ? 'password' : 'text'" required>
                   <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix (click)="chide = !chide">
                     {{chide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="authForm.get('cpassword')!.hasError('required')">
-                    Confirm Password is required
+                    Se requiere Confirmar contraseña
                   </mat-error>
                 </mat-form-field>
               </div>
             </div>
             <div class="flex-sb-m w-full  p-b-20">
               <div>
-                <span>Already Registered? <a routerLink="/authentication/signin">
-                    Login
+                <span>
+                  ¿Ya estas registrado?
+                   <a routerLink="/authentication/signin">
+                    Iniciar sesión
                   </a></span>
               </div>
             </div>
             <div class="container-auth-form-btn">
               <button mat-raised-button color="primary" class="auth-form-btn" [disabled]="!authForm.valid "
                 type="submit">
-                Register
+                Registrarse
               </button>
             </div>
           </form>
-          <h6 class="social-login-title">OR</h6>
+          <h6 class="social-login-title">Otros</h6>
           <ul class="list-unstyled social-icon mb-0 mt-3">
             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
                 <i class="fab fa-google"></i>

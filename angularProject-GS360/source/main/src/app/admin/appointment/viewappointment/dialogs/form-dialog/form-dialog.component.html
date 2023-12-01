@@ -17,11 +17,11 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>name</mat-label>
+            <mat-label>Nombre</mat-label>
             <input matInput formControlName="name">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
             <mat-error *ngIf="appointmentForm.get('name')?.hasError('required')">
-              Name is required
+              Se requiere el nombre
             </mat-error>
           </mat-form-field>
         </div>
@@ -32,7 +32,7 @@
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>email</mat-icon>
             <mat-error
               *ngIf="appointmentForm.get('email')?.hasError('required') || appointmentForm.get('email')?.touched">
-              Please enter a valid email address
+              Por favor, introduce una dirección de email válida
             </mat-error>
           </mat-form-field>
         </div>
@@ -40,10 +40,10 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="m-b-20">
-            <mat-label class="msr-3">Gender:</mat-label>
+            <mat-label class="msr-3">Genero:</mat-label>
             <mat-radio-group aria-label="Select gender" formControlName="gender" required>
-              <mat-radio-button value="male">Male</mat-radio-button>
-              <mat-radio-button value="female">Female</mat-radio-button>
+              <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+              <mat-radio-button value="femenino">femenino</mat-radio-button>
               <mat-error *ngIf="appointmentForm.get('gender')?.hasError('required')">
                 Select gender
               </mat-error>
@@ -54,22 +54,22 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Choose a date</mat-label>
+            <mat-label>Elige una fecha</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="appointmentForm.get('date')?.hasError('required')">
-              Please select date
+             Por favor seleccione fecha
             </mat-error>
           </mat-form-field>
         </div>
         <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Time</mat-label>
+            <mat-label>Tiempo</mat-label>
             <input matInput formControlName="time">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>access_time</mat-icon>
             <mat-error *ngIf="appointmentForm.get('time')?.hasError('required')">
-              Please select time
+              Por favor seleccione la hora
             </mat-error>
           </mat-form-field>
         </div>
@@ -77,17 +77,17 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Mobile</mat-label>
+            <mat-label>Telefono</mat-label>
             <input matInput formControlName="mobile" type="number">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>phone</mat-icon>
             <mat-error *ngIf="appointmentForm.get('mobile')?.hasError('required')">
-              Mobile is required
+              Se requiere teléfono
             </mat-error>
           </mat-form-field>
         </div>
         <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width " appearance="outline">
-            <mat-label>Doctor Name</mat-label>
+            <mat-label>Nombre del Doctor</mat-label>
             <mat-select formControlName="doctor" required>
               <mat-option [value]="'Dr.Rajesh'">
                 Dr.Rajesh
@@ -106,7 +106,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="appointmentForm.get('doctor')?.hasError('required')">
-              Doctor Name is required
+             Se requiere el nombre del Doctor
             </mat-error>
           </mat-form-field>
         </div>
@@ -114,7 +114,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Injury/Condition</mat-label>
+            <mat-label>Lesión/Condición</mat-label>
             <textarea matInput formControlName="injury"></textarea>
           </mat-form-field>
         </div>
@@ -123,8 +123,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!appointmentForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
           </div>
         </div>
       </div>

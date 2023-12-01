@@ -113,7 +113,7 @@ export class Dashboard2Component implements OnInit {
         size: 3,
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        categories: ['Enr', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
         title: {
           text: 'Month',
         },

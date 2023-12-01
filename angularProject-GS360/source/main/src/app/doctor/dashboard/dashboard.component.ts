@@ -70,19 +70,19 @@ export class DashboardComponent implements OnInit {
       id: '1',
       title: 'Check patient report',
       done: true,
-      priority: 'High',
+      priority: 'Alto',
     },
     {
       id: '2',
       title: 'Request for festivle holiday',
       done: false,
-      priority: 'High',
+      priority: 'Alto',
     },
     {
       id: '3',
       title: 'Order new medicine stock',
       done: false,
-      priority: 'Low',
+      priority: 'Bajo',
     },
     {
       id: '4',
@@ -94,7 +94,7 @@ export class DashboardComponent implements OnInit {
       id: '5',
       title: 'Conference in london',
       done: false,
-      priority: 'High',
+      priority: 'Alto',
     },
     {
       id: '6',
@@ -106,25 +106,25 @@ export class DashboardComponent implements OnInit {
       id: '7',
       title: 'call bus driver',
       done: true,
-      priority: 'High',
+      priority: 'Alto',
     },
     {
       id: '8',
       title: 'Web service data load issue',
       done: false,
-      priority: 'High',
+      priority: 'Alto',
     },
     {
       id: '9',
       title: 'Java compile error',
       done: false,
-      priority: 'Low',
+      priority: 'Bajo',
     },
     {
       id: '10',
       title: 'Integrate project with spring boot',
       done: true,
-      priority: 'High',
+      priority: 'Alto',
     },
   ];
 
@@ -146,11 +146,11 @@ export class DashboardComponent implements OnInit {
     this.areaChartOptions = {
       series: [
         {
-          name: 'New Patients',
+          name: 'Nuevos pacientes',
           data: [31, 40, 28, 51, 42, 85, 77],
         },
         {
-          name: 'Old Patients',
+          name: 'Viejos pacientes',
           data: [11, 32, 45, 32, 34, 52, 41],
         },
       ],
@@ -240,11 +240,11 @@ export class DashboardComponent implements OnInit {
     this.linechartOptions = {
       series: [
         {
-          name: 'Male',
+          name: 'Masculino',
           data: [44, 55, 57, 56, 61, 58],
         },
         {
-          name: 'Female',
+          name: 'Femenino',
           data: [76, 85, 101, 98, 87, 105],
         },
       ],
@@ -286,7 +286,7 @@ export class DashboardComponent implements OnInit {
         colors: ['transparent'],
       },
       xaxis: {
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        categories: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
       },
       yaxis: {},
       fill: {

@@ -50,7 +50,7 @@
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>email</mat-icon>
             <mat-error
               *ngIf="appointmentForm.get('email')?.hasError('required') || appointmentForm.get('email')?.touched">
-              Please enter a valid email address
+              Por favor, introduce una dirección de email válida
             </mat-error>
           </mat-form-field>
         </div>
@@ -63,7 +63,7 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="appointmentForm.get('date')?.hasError('required')">
-              Please select date
+              Por favor seleccione fecha
             </mat-error>
           </mat-form-field>
         </div>

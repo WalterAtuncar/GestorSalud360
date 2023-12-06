@@ -2,7 +2,7 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'Medicine List'" [items]="['Medicines']" [active_item]="'Medicine List'">
+      <app-breadcrumb [title]="'Lista de medicamentos'" [items]="['Medicamentos']" [active_item]="'Lista de medicamentos'">
       </app-breadcrumb>
     </div>
     <div class="row">
@@ -12,7 +12,7 @@
             <div class="left">
               <ul class="header-buttons-left ms-0">
                 <li class="tbl-title">
-                  <h2>Medicines</h2>
+                  <h2>Medicamentos</h2>
                 </li>
                 <li class="tbl-search-box">
                   <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -82,43 +82,41 @@
                     {{row.m_no}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="m_name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Medicine Name</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Medicine Name:</span>{{row.m_name}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre del medicamento</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Nombre del medicamento:</span>{{row.m_name}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="category">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Category
+                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Categoría
                   </mat-header-cell>
                   <mat-cell *matCellDef="let row"> <span class="truncate-text" [ngClass]="'tbl-col-width-per-80'"><span
-                        class="mobile-label">Category:</span>{{row.category}}</span></mat-cell>
+                        class="mobile-label">Categoría:</span>{{row.category}}</span></mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="company">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Company Name
+                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Nombre de empresa
                   </mat-header-cell>
                   <mat-cell *matCellDef="let row"> <span class="truncate-text" [ngClass]="'tbl-col-width-per-80'"><span
-                        class="mobile-label">Company Name:</span>{{row.company}}</span></mat-cell>
+                        class="mobile-label">Nombre de empresa:</span>{{row.company}}</span></mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="p_date">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Purchase Date</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Purchase
-                      Date:</span>{{row.p_date | date: 'MM/dd/yyyy'}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de compra</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Fecha de compra:</span>{{row.p_date | date: 'MM/dd/yyyy'}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="price">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Price:</span>{{row.price}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Precio</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Precio:</span>{{row.price}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="e_date">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Expired Date</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Expired
-                      Date:</span>{{row.e_date | date: 'MM/dd/yyyy'}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de vencimiento</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Fecha de vencimiento:</span>{{row.e_date | date: 'MM/dd/yyyy'}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="stock">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Stock</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Stock:</span>{{row.stock}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Existencias</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Existencias:</span>{{row.stock}}</mat-cell>
                 </ng-container>
                 <!-- actions -->
                 <ng-container matColumnDef="actions">
-                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Acciones</mat-header-cell>
                   <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
                     <button mat-icon-button (click)="$event.stopPropagation()" (click)="editCall(row)"
                       class="tbl-action-btn">

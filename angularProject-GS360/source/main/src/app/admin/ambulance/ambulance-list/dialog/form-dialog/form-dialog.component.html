@@ -16,21 +16,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Vehicle No</mat-label>
+            <mat-label>Nro vehiculo</mat-label>
             <input matInput formControlName="vehicle_no" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>pin</mat-icon>
             <mat-error *ngIf="ambulanceListForm.get('vehicle_no')?.hasError('required')">
-              Vehicle No is required
+              Se requiere el Nro de vehículo
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Vehicle Name</mat-label>
+            <mat-label>Nombre del vehículo</mat-label>
             <input matInput formControlName="vehicle_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>airport_shuttle</mat-icon>
             <mat-error *ngIf="ambulanceListForm.get('vehicle_name')?.hasError('required')">
-              Vehicle Name is required
+              El nombre del vehículo es obligatorio.
             </mat-error>
           </mat-form-field>
         </div>
@@ -38,21 +38,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Year Made</mat-label>
+            <mat-label>Año de fabricación</mat-label>
             <input matInput formControlName="year_made" type="number" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>event_note</mat-icon>
             <mat-error *ngIf="ambulanceListForm.get('year_made')?.hasError('required')">
-              Year Made is required
+              Se requiere el año de fabricación
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Driver Name</mat-label>
+            <mat-label>Nombre del conductor</mat-label>
             <input matInput formControlName="driver_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="ambulanceListForm.get('driver_name')?.hasError('required')">
-              Driver Name is required
+              El nombre del conductor es obligatorio
             </mat-error>
           </mat-form-field>
         </div>
@@ -60,21 +60,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Driver License No</mat-label>
+            <mat-label>Nro de licencia de conducir</mat-label>
             <input matInput formControlName="driver_license_no">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>credit_card</mat-icon>
             <mat-error *ngIf="ambulanceListForm.get('driver_license_no')?.hasError('required')">
-              Driver License No is required
+               Se requiere Nro licencia de conducir
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Driver Contact No</mat-label>
+            <mat-label>Nro de contacto del conductor</mat-label>
             <input matInput formControlName="driver_no" type="number">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>phone</mat-icon>
             <mat-error *ngIf="ambulanceListForm.get('driver_no')?.hasError('required')">
-              Driver No is required
+              Se requiere el Nro de conductor
             </mat-error>
           </mat-form-field>
         </div>
@@ -82,10 +82,10 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width " appearance="outline">
-            <mat-label>Vehicle Type</mat-label>
+            <mat-label>Tipo de vehiculo</mat-label>
             <mat-select formControlName="vehicle_type" required>
               <mat-option [value]="'Owned'">
-                Owned
+                Propiedad
               </mat-option>
               <mat-option [value]="'Contractual'">
                 Contractual
@@ -98,8 +98,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!ambulanceListForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
           </div>
         </div>
       </div>

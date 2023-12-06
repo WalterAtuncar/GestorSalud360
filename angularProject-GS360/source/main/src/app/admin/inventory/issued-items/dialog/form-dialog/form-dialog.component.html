@@ -16,21 +16,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Item Name</mat-label>
+            <mat-label>Nombre del árticulo</mat-label>
             <input matInput formControlName="i_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>receipt</mat-icon>
             <mat-error *ngIf="issuedItemsForm.get('i_name')?.hasError('required')">
-              Item name is required
+              El nombre del artículo es obligatorio.
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Category</mat-label>
+            <mat-label>Categoría</mat-label>
             <input matInput formControlName="category" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
             <mat-error *ngIf="issuedItemsForm.get('category')?.hasError('required')">
-              Category is required
+              la categoria es requerida
             </mat-error>
           </mat-form-field>
         </div>
@@ -38,7 +38,7 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Issue date</mat-label>
+            <mat-label>Fecha de asunto</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="issue_date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -49,7 +49,7 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Return date</mat-label>
+            <mat-label>Fecha de regreso</mat-label>
             <input matInput [matDatepicker]="picker1" formControlName="return_date">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
@@ -62,21 +62,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Issue To</mat-label>
+            <mat-label>Emitido a</mat-label>
             <input matInput formControlName="issue_to" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="issuedItemsForm.get('issue_to')?.hasError('required')">
-              Issue To is required
+              Se requiere emisión para
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Quantity</mat-label>
+            <mat-label>Cantidad</mat-label>
             <input matInput formControlName="qty" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="issuedItemsForm.get('qty')?.hasError('required')">
-              Quantity is required
+              Se requiere cantidad
             </mat-error>
           </mat-form-field>
         </div>
@@ -84,12 +84,12 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <div class="m-b-20">
-            <mat-label class="msr-3">Status:</mat-label>
+            <mat-label class="msr-3">Estado:</mat-label>
             <mat-radio-group aria-label="Select status" formControlName="status" required>
-              <mat-radio-button value="Issued">Issued</mat-radio-button>
-              <mat-radio-button value="Returned">Returned</mat-radio-button>
+              <mat-radio-button value="Issued">Emitido</mat-radio-button>
+              <mat-radio-button value="Returned">Devuelto</mat-radio-button>
               <mat-error *ngIf="issuedItemsForm.get('status')?.hasError('required')">
-                Select status
+                Seleccionar estado
               </mat-error>
             </mat-radio-group>
           </div>
@@ -99,8 +99,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!issuedItemsForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
           </div>
         </div>
       </div>

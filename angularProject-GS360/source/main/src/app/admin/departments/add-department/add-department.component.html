@@ -2,24 +2,24 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'Add Department'" [items]="['Departments']" [active_item]="'Add Department'">
+      <app-breadcrumb [title]="'Agregar departamento'" [items]="['Departamentos']" [active_item]="'Agregar departamento'">
       </app-breadcrumb>
     </div>
     <div class="row clearfix">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <div class="card">
           <div class="header">
-            <h2><strong> Add Department</strong></h2>
+            <h2><strong> Agregar departamento</strong></h2>
           </div>
           <div class="body">
             <form class="m-4" [formGroup]="departForm" (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Department No</mat-label>
+                    <mat-label>Nro de departamento</mat-label>
                     <input matInput formControlName="d_no" type="number" required>
                     <mat-error *ngIf="departForm.get('d_no')?.hasError('required')">
-                      Department No is required
+                      El número de departamento es obligatorio
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -27,10 +27,10 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Department Name</mat-label>
+                    <mat-label>Nombre de Departamento</mat-label>
                     <input matInput formControlName="d_name" required>
                     <mat-error *ngIf="departForm.get('d_name')?.hasError('required')">
-                      Department Name is required
+                      El nombre del departamento es obligatorio
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -38,7 +38,7 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Department Date</mat-label>
+                    <mat-label>fecha de departamento</mat-label>
                     <input matInput [matDatepicker]="picker" formControlName="d_date" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -51,10 +51,10 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Department Head</mat-label>
+                    <mat-label>Jefe de departamento</mat-label>
                     <input matInput formControlName="d_head" required>
                     <mat-error *ngIf="departForm.get('d_head')?.hasError('required')">
-                      Department Head is required
+                      Se requiere jefe de departamento
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -62,17 +62,17 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Status</mat-label>
+                    <mat-label> Estado</mat-label>
                     <mat-select formControlName="status" required>
                       <mat-option [value]="'Active'">
-                        Active
+                        Activo
                       </mat-option>
                       <mat-option [value]="'Inactive'">
-                        Inactive
+                        Inactivo
                       </mat-option>
                     </mat-select>
                     <mat-error *ngIf="departForm.get('status')?.hasError('required')">
-                      Status is required
+                      Se requiere estado
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Description</mat-label>
+                    <mat-label>Descripción</mat-label>
                     <textarea matInput formControlName="description"></textarea>
                   </mat-form-field>
                 </div>
@@ -88,8 +88,8 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <button class="btn-space" [disabled]="!departForm.valid " mat-raised-button
-                    color="primary">Submit</button>
-                  <button type="button" mat-raised-button color="warn">Cancel</button>
+                    color="primary">Entregar</button>
+                  <button type="button" mat-raised-button color="warn">Cancelar</button>
                 </div>
               </div>
             </form>

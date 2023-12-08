@@ -13,7 +13,7 @@ export class Patient {
       this.id = patient.id || this.getRandomID();
       this.img = patient.img || 'assets/images/user/user1.jpg';
       this.name = patient.name || '';
-      this.gender = patient.gender || 'male';
+      this.gender = patient.gender || 'Masculino';
       this.bGroup = patient.bGroup || '';
       this.date = patient.date || '';
       this.address = patient.address || '';

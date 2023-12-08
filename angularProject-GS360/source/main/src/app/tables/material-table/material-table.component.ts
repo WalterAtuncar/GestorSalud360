@@ -14,7 +14,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 1,
     name: 'John Doe',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '729 S. Paris Hill St',
     mobile: 1234567890,
@@ -23,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 2,
     name: 'Sarah Smith',
-    gender: 'female',
+    gender: 'Femenino',
     email: 'test@example.com',
     address: '9003 Lake Street Hinesville',
     mobile: 1234567890,
@@ -32,7 +32,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 3,
     name: 'Airi Satou',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '848 Old Durham Street Piedmont',
     mobile: 1234567890,
@@ -41,7 +41,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 4,
     name: 'Angelica Ramos',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '8008 Anderson Drive Titusville',
     mobile: 1234567890,
@@ -50,7 +50,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 5,
     name: 'Ashton Cox',
-    gender: 'female',
+    gender: 'Femenino',
     email: 'test@example.com',
     address: '620 East Ave. Dundalk',
     mobile: 1234567890,
@@ -59,7 +59,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 6,
     name: 'Cara Stevens',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '9641 Delaware Street Camp Hill',
     mobile: 1234567890,
@@ -68,7 +68,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 7,
     name: 'Jens Brincker',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '83 Pennsylvania Road',
     mobile: 1234567890,
@@ -77,7 +77,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 8,
     name: 'Mark Hay',
-    gender: 'female',
+    gender: 'Femenino',
     email: 'test@example.com',
     address: '786 Lake Forest Rd. Biloxi',
     mobile: 1234567890,
@@ -86,7 +86,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 9,
     name: 'Anthony Davie',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '226 Heritage Dr. Durham',
     mobile: 1234567890,
@@ -95,7 +95,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {
     no: 10,
     name: 'Sue Woodger',
-    gender: 'male',
+    gender: 'Masculino',
     email: 'test@example.com',
     address: '7 SE. Pumpkin Hill Lane',
     mobile: 1234567890,

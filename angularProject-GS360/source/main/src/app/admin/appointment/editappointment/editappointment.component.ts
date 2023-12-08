@@ -15,7 +15,7 @@ export class EditappointmentComponent {
   formdata = {
     first: 'Pooja',
     last: 'Sarma',
-    gender: 'female',
+    gender: 'Femenino',
     mobile: '123456789',
     address: '101, Elanxa, New Yourk',
     email: 'test@example.com',

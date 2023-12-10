@@ -10,4 +10,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ProjectCore\Business.Logic\Business.Logic.csproj" />
+    <ProjectReference Include="..\..\ProjectCore\Unit.Of.Work\Unit.Of.Work.csproj" />
+    <ProjectReference Include="..\Appointment.Manager.API\Appointment.Manager.API.csproj" />
+  </ItemGroup>
+
 </Project>

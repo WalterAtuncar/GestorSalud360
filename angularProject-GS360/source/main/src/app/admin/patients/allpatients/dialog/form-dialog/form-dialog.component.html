@@ -17,21 +17,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Name</mat-label>
+            <mat-label>Nombre</mat-label>
             <input matInput formControlName="name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
             <mat-error *ngIf="patientForm.get('name')?.hasError('required')">
-              Name is required
+              Se requiere el nombre
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Mobile</mat-label>
+            <mat-label>Móvil</mat-label>
             <input matInput formControlName="mobile" type="number">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>phone</mat-icon>
             <mat-error *ngIf="patientForm.get('mobile')?.hasError('required')">
-              Mobile is required
+              Se requiere móvil
             </mat-error>
           </mat-form-field>
         </div>
@@ -39,12 +39,12 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="m-b-20">
-            <mat-label class="msr-3">Gender:</mat-label>
+            <mat-label class="msr-3">Género:</mat-label>
             <mat-radio-group aria-label="Select gender" formControlName="gender" required>
-              <mat-radio-button value="male">Male</mat-radio-button>
-              <mat-radio-button value="female">Female</mat-radio-button>
+              <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+              <mat-radio-button value="Femenino">Femenino</mat-radio-button>
               <mat-error *ngIf="patientForm.get('gender')?.hasError('required')">
-                Select gender
+                Seleccione género
               </mat-error>
             </mat-radio-group>
           </div>
@@ -53,7 +53,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Address</mat-label>
+            <mat-label>Dirección</mat-label>
             <textarea matInput formControlName="address"></textarea>
           </mat-form-field>
         </div>
@@ -61,18 +61,18 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Birth date</mat-label>
+            <mat-label>Fecha de nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="patientForm.get('date')?.hasError('required')">
-              Please select date
+              Por favor seleccione fecha
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width " appearance="outline">
-            <mat-label>Blood Group</mat-label>
+            <mat-label>Grupo sanguíneo</mat-label>
             <mat-select formControlName="bGroup" required>
               <mat-option [value]="'A+'">
                 A+
@@ -88,7 +88,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="patientForm.get('bGroup')?.hasError('required')">
-              Blood Group is required
+              Se requiere grupo sanguíneo
             </mat-error>
           </mat-form-field>
         </div>
@@ -96,11 +96,11 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Treatment</mat-label>
+            <mat-label>Tratamiento</mat-label>
             <input matInput formControlName="treatment" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>healing</mat-icon>
             <mat-error *ngIf="patientForm.get('treatment')?.hasError('required')">
-              Treatment is required
+              Se requiere tratamiento
             </mat-error>
           </mat-form-field>
         </div>
@@ -109,8 +109,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!patientForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar </button>
           </div>
         </div>
       </div>

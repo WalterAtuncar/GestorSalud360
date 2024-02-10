@@ -17,21 +17,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Room No</mat-label>
+            <mat-label>Nro. de Habitación</mat-label>
             <input matInput formControlName="rNo" required>
-            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>assignment</mat-icon>
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>Asignación</mat-icon>
             <mat-error *ngIf="roomForm.get('rNo')?.hasError('required')">
-              Room no is required
+              Se requiere habitación
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Patient Name</mat-label>
+            <mat-label>Nombre del paciente</mat-label>
             <input matInput formControlName="pName" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
             <mat-error *ngIf="roomForm.get('pName')?.hasError('required')">
-              Patient Name is required
+              El nombre del paciente es obligatorio
             </mat-error>
           </mat-form-field>
         </div>
@@ -39,11 +39,11 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Room Type</mat-label>
+            <mat-label>Tipo de habitación</mat-label>
             <input matInput formControlName="rType" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>store</mat-icon>
             <mat-error *ngIf="roomForm.get('rType')?.hasError('required')">
-              Room type is required
+              Se requiere tipo de habitación
             </mat-error>
           </mat-form-field>
         </div>
@@ -51,12 +51,12 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="m-b-20">
-            <mat-label class="msr-3">Gender:</mat-label>
+            <mat-label class="msr-3">Género:</mat-label>
             <mat-radio-group aria-label="Select gender" formControlName="gender" required>
-              <mat-radio-button value="Male">Male</mat-radio-button>
-              <mat-radio-button value="Female">Female</mat-radio-button>
+              <mat-radio-button value="Male">Masculino</mat-radio-button>
+              <mat-radio-button value="Female">Femenino</mat-radio-button>
               <mat-error *ngIf="roomForm.get('gender')?.hasError('required')">
-                Select gender
+                Seleccione género
               </mat-error>
             </mat-radio-group>
           </div>
@@ -65,23 +65,23 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Admit date</mat-label>
+            <mat-label>Fecha de admisión</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="admitDate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="roomForm.get('admitDate')?.hasError('required')">
-              Please select Admit date
+              Por favor seleccione Fecha de admisión
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Discharge date</mat-label>
+            <mat-label>Fecha de alta</mat-label>
             <input matInput [matDatepicker]="pickerTo" formControlName="dischargeDate">
             <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
             <mat-datepicker #pickerTo></mat-datepicker>
             <mat-error *ngIf="roomForm.get('dischargeDate')?.hasError('required')">
-              Please select Discharge date
+              Por favor seleccione la fecha de alta
             </mat-error>
           </mat-form-field>
         </div>
@@ -90,8 +90,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!roomForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
           </div>
         </div>
       </div>

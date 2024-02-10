@@ -16,21 +16,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Case No</mat-label>
+            <mat-label>Nro caso</mat-label>
             <input matInput formControlName="case_no" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>receipt</mat-icon>
             <mat-error *ngIf="deathForm.get('case_no')?.hasError('required')">
-              Name is required
+              Se requiere nro de caso
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Patient Name</mat-label>
+            <mat-label>Nombre del paciente</mat-label>
             <input matInput formControlName="patient_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="deathForm.get('patient_name')?.hasError('required')">
-              Patient Name is required
+              El nombre del paciente es obligatorio
             </mat-error>
           </mat-form-field>
         </div>
@@ -38,13 +38,13 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="m-b-20">
-            <mat-label class="msr-3">Gender:</mat-label>
+            <mat-label class="msr-3">Género:</mat-label>
             <mat-radio-group aria-label="Select gender" formControlName="gender" required>
-              <mat-radio-button value="Male">Male</mat-radio-button>
-              <mat-radio-button value="Female">Female</mat-radio-button>
-              <mat-radio-button value="Other">Other</mat-radio-button>
+              <mat-radio-button value="Male">Masculino</mat-radio-button>
+              <mat-radio-button value="Female">Femenino</mat-radio-button>
+              <mat-radio-button value="Other">Otros</mat-radio-button>
               <mat-error *ngIf="deathForm.get('gender')?.hasError('required')">
-                Select gender
+                Seleccione género
               </mat-error>
             </mat-radio-group>
           </div>
@@ -53,22 +53,22 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Death date</mat-label>
+            <mat-label>Fecha de la muerte</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="death_date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="deathForm.get('death_date')?.hasError('required')">
-              Please select date
+              Por favor seleccione fecha
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Gaurdian Name</mat-label>
+            <mat-label>Nombre del tutor</mat-label>
             <input matInput formControlName="gaurdian_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="deathForm.get('gaurdian_name')?.hasError('required')">
-              Gaurdian Name is required
+              Se requiere el nombre del guardián
             </mat-error>
           </mat-form-field>
         </div>
@@ -76,11 +76,11 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Mobile</mat-label>
+            <mat-label>Móvil</mat-label>
             <input matInput formControlName="mobile" type="number">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>phone</mat-icon>
             <mat-error *ngIf="deathForm.get('mobile')?.hasError('required')">
-              Mobile is required
+              Se requiere móvil
             </mat-error>
           </mat-form-field>
         </div>
@@ -88,7 +88,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Address</mat-label>
+            <mat-label>Dirección</mat-label>
             <textarea matInput formControlName="address"></textarea>
           </mat-form-field>
         </div>
@@ -97,8 +97,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!deathForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
           </div>
         </div>
       </div>

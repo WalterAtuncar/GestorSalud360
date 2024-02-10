@@ -2,7 +2,7 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'Ambulance List'" [items]="['Ambulance']" [active_item]="'List'">
+      <app-breadcrumb [title]="'Lista de ambulancias'" [items]="['Ambulancia']" [active_item]="'Lista'">
       </app-breadcrumb>
     </div>
     <div class="row">
@@ -12,7 +12,7 @@
             <div class="left">
               <ul class="header-buttons-left ms-0">
                 <li class="tbl-title">
-                  <h2>Ambulance List</h2>
+                  <h2>Lista de ambulancias</h2>
                 </li>
                 <li class="tbl-search-box">
                   <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -24,14 +24,14 @@
             <div class="right">
               <ul class="tbl-export-btn">
                 <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="ADD">
+                  <div class="m-l-10" matTooltip="AGREGAR">
                     <button mat-mini-fab color="primary" (click)="addNew()">
                       <mat-icon class="col-white">add</mat-icon>
                     </button>
                   </div>
                 </li>
                 <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="REFRESH">
+                  <div class="m-l-10" matTooltip="REFRESCAR">
                     <button mat-mini-fab color="primary" (click)="refresh()">
                       <mat-icon class="col-white">refresh</mat-icon>
                     </button>
@@ -76,45 +76,43 @@
                   <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="vehicle_no">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle No</mat-header-cell>
-                  <mat-cell *matCellDef="let row"><span class="mobile-label">Vehicle No:</span> {{row.vehicle_no}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nro vehiculo</mat-header-cell>
+                  <mat-cell *matCellDef="let row"><span class="mobile-label">Nro vehiculo:</span> {{row.vehicle_no}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="vehicle_name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle Name</mat-header-cell>
-                  <mat-cell *matCellDef="let row"><span class="mobile-label">Vehicle Name:</span> {{row.vehicle_name}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre del vehículo</mat-header-cell>
+                  <mat-cell *matCellDef="let row"><span class="mobile-label">Nombre del vehículo:</span> {{row.vehicle_name}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="year_made">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Year Made</mat-header-cell>
-                  <mat-cell *matCellDef="let row"><span class="mobile-label">Year Made:</span> {{row.year_made}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Año de fabricación</mat-header-cell>
+                  <mat-cell *matCellDef="let row"><span class="mobile-label">Año de fabricación:</span> {{row.year_made}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="driver_name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Driver Name</mat-header-cell>
-                  <mat-cell *matCellDef="let row"><span class="mobile-label">Driver Name:</span> {{row.driver_name}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre del conductor</mat-header-cell>
+                  <mat-cell *matCellDef="let row"><span class="mobile-label">Nombre del conductor:</span> {{row.driver_name}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="driver_license_no">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Driver License No</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Driver License
-                      No:</span>{{row.driver_license_no}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nro de licencia de conducir</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Nro de licencia de conducir:</span>{{row.driver_license_no}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="driver_no">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Driver Contact No</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Driver Contact No:</span>{{row.driver_no}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nro de contacto del conductor</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Nro de contacto del conductor:</span>{{row.driver_no}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="vehicle_type">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle Type</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de vehiculo</mat-header-cell>
                   <mat-cell *matCellDef="let row">
-                    <span class="truncate-text"><span class="mobile-label">Vehicle
-                        Type:</span>{{row.vehicle_type}}</span>
+                    <span class="truncate-text"><span class="mobile-label">Tipo de vehiculo:</span>{{row.vehicle_type}}</span>
                   </mat-cell>
                 </ng-container>
                 <!-- actions -->
                 <ng-container matColumnDef="actions">
-                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Acciones</mat-header-cell>
                   <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
                     <button mat-icon-button (click)="$event.stopPropagation()" (click)="editCall(row)"
                       class="tbl-action-btn">
@@ -139,7 +137,7 @@
               </div>
               <div *ngIf="!exampleDatabase?.isTblLoading" class="no-results"
                 [style.display]="dataSource.renderedData.length === 0 ? '' : 'none'">
-                No results
+                No hay resultados
               </div>
               <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
                 [pageSizeOptions]="[5, 10, 25, 100]">

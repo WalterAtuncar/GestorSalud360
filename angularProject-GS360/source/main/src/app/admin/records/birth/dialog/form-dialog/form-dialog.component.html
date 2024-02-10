@@ -16,21 +16,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Case No</mat-label>
+            <mat-label>Nro caso</mat-label>
             <input matInput formControlName="case_no" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>receipt</mat-icon>
             <mat-error *ngIf="birthForm.get('case_no')?.hasError('required')">
-              Name is required
+              Se requiere el nombre
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Child Name</mat-label>
+            <mat-label>Nombre de niño</mat-label>
             <input matInput formControlName="child_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
             <mat-error *ngIf="birthForm.get('child_name')?.hasError('required')">
-              Child Name is required
+              Se requiere el nombre del niño
             </mat-error>
           </mat-form-field>
         </div>
@@ -38,11 +38,11 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="m-b-20">
-            <mat-label class="msr-3">Gender:</mat-label>
+            <mat-label class="msr-3">Género:</mat-label>
             <mat-radio-group aria-label="Select gender" formControlName="gender" required>
-              <mat-radio-button value="Male">Male</mat-radio-button>
-              <mat-radio-button value="Female">Female</mat-radio-button>
-              <mat-radio-button value="Other">Other</mat-radio-button>
+              <mat-radio-button value="Male">Masculino</mat-radio-button>
+              <mat-radio-button value="Female">Femenino</mat-radio-button>
+              <mat-radio-button value="Other">Otro</mat-radio-button>
               <mat-error *ngIf="birthForm.get('gender')?.hasError('required')">
                 Select gender
               </mat-error>
@@ -53,22 +53,22 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Birth date</mat-label>
+            <mat-label>Fecha de nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="birth_date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="birthForm.get('birth_date')?.hasError('required')">
-              Please select date
+              Por favor seleccione fecha
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Mother Name</mat-label>
+            <mat-label>Nombre de la madre</mat-label>
             <input matInput formControlName="mother_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="birthForm.get('mother_name')?.hasError('required')">
-              Mother Name is required
+              Se requiere el nombre de la madre
             </mat-error>
           </mat-form-field>
         </div>
@@ -76,21 +76,21 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Father Name</mat-label>
+            <mat-label>Nombre del Padre</mat-label>
             <input matInput formControlName="father_name" required>
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>account_circle</mat-icon>
             <mat-error *ngIf="birthForm.get('father_name')?.hasError('required')">
-              Father Name is required
+              Se requiere el nombre del padre
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Mobile</mat-label>
+            <mat-label>Móvil</mat-label>
             <input matInput formControlName="mobile" type="number">
             <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>phone</mat-icon>
             <mat-error *ngIf="birthForm.get('mobile')?.hasError('required')">
-              Mobile is required
+              Se requiere móvil
             </mat-error>
           </mat-form-field>
         </div>
@@ -98,7 +98,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Address</mat-label>
+            <mat-label>Dirección</mat-label>
             <textarea matInput formControlName="address"></textarea>
           </mat-form-field>
         </div>
@@ -107,8 +107,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
           <div class="example-button-row">
             <button mat-raised-button color="primary" [disabled]="!birthForm.valid" [mat-dialog-close]="1"
-              (click)="confirmAdd()">Save</button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+              (click)="confirmAdd()">Guardar</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancelar</button>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'Item Stock List'" [items]="['Inventory']" [active_item]="'Item Stock List'">
+      <app-breadcrumb [title]="'Lista de existencias de artículos'" [items]="['Inventario']" [active_item]="'Lista de existencias de artículos'">
       </app-breadcrumb>
     </div>
     <div class="row">
@@ -12,7 +12,7 @@
             <div class="left">
               <ul class="header-buttons-left ms-0">
                 <li class="tbl-title">
-                  <h2>Stock List</h2>
+                  <h2>Lista común</h2>
                 </li>
                 <li class="tbl-search-box">
                   <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -24,14 +24,14 @@
             <div class="right">
               <ul class="tbl-export-btn">
                 <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="ADD">
+                  <div class="m-l-10" matTooltip="AGREGAR">
                     <button mat-mini-fab color="primary" (click)="addNew()">
                       <mat-icon class="col-white">add</mat-icon>
                     </button>
                   </div>
                 </li>
                 <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="REFRESH">
+                  <div class="m-l-10" matTooltip="REFRESCAR">
                     <button mat-mini-fab color="primary" (click)="refresh()">
                       <mat-icon class="col-white">refresh</mat-icon>
                     </button>
@@ -76,39 +76,38 @@
                   <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="i_name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Item Name
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre del árticulo
                   </mat-header-cell>
-                  <mat-cell *matCellDef="let row"><span class="mobile-label">Item Name:</span> {{row.i_name}}</mat-cell>
+                  <mat-cell *matCellDef="let row"><span class="mobile-label">Nombre del árticulo:</span> {{row.i_name}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="category">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Category</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Category:</span>{{row.category}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Categoría</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Categoría:</span>{{row.category}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="qty">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Quantity
+                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Cantidad
                   </mat-header-cell>
                   <mat-cell *matCellDef="let row"> <span class="truncate-text" [ngClass]="'tbl-col-width-per-80'"><span
-                        class="mobile-label">Quantity:</span>{{row.qty}}</span></mat-cell>
+                        class="mobile-label">Cantidad:</span>{{row.qty}}</span></mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="date">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Purchase Date</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Purchase
-                      Date:</span>{{row.date | date: 'MM/dd/yyyy'}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de compra</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Fecha de compra:</span>{{row.date | date: 'MM/dd/yyyy'}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="price">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Price($)</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Price:</span>{{row.price}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Precio($)</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Precio:</span>{{row.price}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="details">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Details</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Detalles</mat-header-cell>
                   <mat-cell *matCellDef="let row">
-                    <span class="truncate-text"><span class="mobile-label">Details:</span>{{row.details}}</span>
+                    <span class="truncate-text"><span class="mobile-label">Detalles:</span>{{row.details}}</span>
                   </mat-cell>
                 </ng-container>
                 <!-- actions -->
                 <ng-container matColumnDef="actions">
-                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Acciones</mat-header-cell>
                   <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
                     <button mat-icon-button (click)="$event.stopPropagation()" (click)="editCall(row)"
                       class="tbl-action-btn">
@@ -133,7 +132,7 @@
               </div>
               <div *ngIf="!exampleDatabase?.isTblLoading" class="no-results"
                 [style.display]="dataSource.renderedData.length === 0 ? '' : 'none'">
-                No results
+                No hay resultados
               </div>
               <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
                 [pageSizeOptions]="[5, 10, 25, 100]">

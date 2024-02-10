@@ -174,7 +174,7 @@ export class DashboardComponent implements OnInit {
     this.restRateChartOptions = {
       series: [
         {
-          name: 'Heart Rate',
+          name: 'Ritmo cardiaco',
           data: [69, 75, 72, 69, 75, 80, 87],
         },
       ],
@@ -210,14 +210,14 @@ export class DashboardComponent implements OnInit {
         strokeDashArray: 1,
       },
       xaxis: {
-        categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        categories: ['Lun', 'Mar', 'Mie', 'Jue', 'Vier', 'Sab', 'Dom'],
         title: {
-          text: 'Weekday',
+          text: 'Día laborable',
         },
       },
       yaxis: {
         title: {
-          text: 'Heart Rate',
+          text: 'Ritmo cardiaco',
         },
       },
       tooltip: {
@@ -235,7 +235,7 @@ export class DashboardComponent implements OnInit {
     this.performanceRateChartOptions = {
       series: [
         {
-          name: 'Heart Rate',
+          name: 'Ritmo cardiaco',
           data: [113, 120, 130, 120, 125, 119, 126],
         },
       ],
@@ -271,14 +271,14 @@ export class DashboardComponent implements OnInit {
         size: 1,
       },
       xaxis: {
-        categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        categories: ['Lun', 'Mar', 'Mie', 'Jue', 'Vier', 'Sab', 'Dom'],
         title: {
-          text: 'Weekday',
+          text: 'Día laborable',
         },
       },
       yaxis: {
         title: {
-          text: 'Heart Rate',
+          text: 'Ritmo cardiaco',
         },
       },
       tooltip: {

@@ -2,7 +2,7 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'Department List'" [items]="['Departments']" [active_item]="'Department List'">
+      <app-breadcrumb [title]="' Lista de departamentos'" [items]="['Departamentos']" [active_item]="'Lista de departamentos'">
       </app-breadcrumb>
     </div>
     <div class="row">
@@ -12,7 +12,7 @@
             <div class="left">
               <ul class="header-buttons-left ms-0">
                 <li class="tbl-title">
-                  <h2>Departments</h2>
+                  <h2>Departamentos</h2>
                 </li>
                 <li class="tbl-search-box">
                   <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -24,14 +24,14 @@
             <div class="right">
               <ul class="tbl-export-btn">
                 <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="ADD">
+                  <div class="m-l-10" matTooltip="AGREGAR">
                     <button mat-mini-fab color="primary" (click)="addNew()">
                       <mat-icon class="col-white">add</mat-icon>
                     </button>
                   </div>
                 </li>
                 <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="REFRESH">
+                  <div class="m-l-10" matTooltip="REFRESCAR">
                     <button mat-mini-fab color="primary" (click)="refresh()">
                       <mat-icon class="col-white">refresh</mat-icon>
                     </button>
@@ -82,31 +82,30 @@
                       class="mobile-label">#:</span>{{row.d_no}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="d_name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Department Name</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Department Name:</span>{{row.d_name}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre de Departamento</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Nombre de Departamento:</span>{{row.d_name}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="description">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Description
+                  <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'tbl-col-width-per-100'">Descripción
                   </mat-header-cell>
                   <mat-cell *matCellDef="let row"> <span class="truncate-text" [ngClass]="'tbl-col-width-per-80'"><span
-                        class="mobile-label">Description:</span>{{row.description}}</span></mat-cell>
+                        class="mobile-label">Descripción:</span>{{row.description}}</span></mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="d_date">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Department Date</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Department
-                      Date:</span>{{row.d_date | date: 'MM/dd/yyyy'}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>fecha de departamento</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">fecha de departamento:</span>{{row.d_date | date: 'MM/dd/yyyy'}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="d_head">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Department Head</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Department Head:</span>{{row.d_head}}
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Jefe de departamento</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Jefe de departamento:</span>{{row.d_head}}
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="status">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Status
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Estado
                   </mat-header-cell>
                   <mat-cell mat-cell *matCellDef="let row">
-                    <span class="mobile-label">Status:</span>
+                    <span class="mobile-label">Estado:</span>
                     <div *ngIf="row.status==='Active'">
                       <span class="badge badge-solid-green">
                         {{row.status}}</span>
@@ -118,18 +117,18 @@
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="mobile">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Mobile:</span>{{row.mobile}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Móvil</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> <span class="mobile-label">Móvil:</span>{{row.mobile}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="address">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Dirección</mat-header-cell>
                   <mat-cell *matCellDef="let row">
-                    <span class="truncate-text"><span class="mobile-label">Address:</span>{{row.address}}</span>
+                    <span class="truncate-text"><span class="mobile-label">Dirección:</span>{{row.address}}</span>
                   </mat-cell>
                 </ng-container>
                 <!-- actions -->
                 <ng-container matColumnDef="actions">
-                  <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-header-cell class="pr-0" *matHeaderCellDef>Acciones</mat-header-cell>
                   <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
                     <button mat-icon-button (click)="$event.stopPropagation()" (click)="editCall(row)"
                       class="tbl-action-btn">
@@ -154,7 +153,7 @@
               </div>
               <div *ngIf="!exampleDatabase?.isTblLoading" class="no-results"
                 [style.display]="dataSource.renderedData.length === 0 ? '' : 'none'">
-                No results
+                No hay resultados
               </div>
               <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
                 [pageSizeOptions]="[5, 10, 25, 100]">

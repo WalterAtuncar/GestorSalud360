@@ -11,6 +11,7 @@ namespace Repositories
         bool Update(T entity);
         int Insert(T entity);
         IEnumerable<T> GetList();
-        T GetById(int id);
+        T GetById(string id);
+        bool Delete(T entity);
     }
 }

@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\ProjectCore\Business.Logic\Business.Logic.csproj" />
     <ProjectReference Include="..\..\ProjectCore\Data.Access\Data.Access.csproj" />
     <ProjectReference Include="..\..\ProjectCore\Unit.Of.Work\Unit.Of.Work.csproj" />

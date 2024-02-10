@@ -1,3 +1,6 @@
+using Business.Logic.ILogic.calendar;
+using Business.Logic.ILogic.Login;
+using Business.Logic.Logic.Login;
 using Unit.Of.Work;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IUnitOfWork>(option => new Data.Access.UnitOfWork(builder.Configuration.GetConnectionString("local")));
-
+builder.Services.AddTransient<ICalendarLogic, calendarLogic>();
 
 var app = builder.Build();
 

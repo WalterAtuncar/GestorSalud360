@@ -43,7 +43,7 @@ namespace Data.Access
             }
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(string id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {

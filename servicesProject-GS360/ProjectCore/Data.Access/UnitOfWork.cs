@@ -1,4 +1,6 @@
-﻿using Data.Access.Login;
+﻿using Data.Access.calendar;
+using Data.Access.Login;
+using Repositories.calendar;
 using Repositories.Login;
 using System;
 using System.Collections.Generic;
@@ -13,10 +15,11 @@ namespace Data.Access
     {
         public ILoginRepository ILogin { get; }
 
-
+        public ICalendarRepository ICalendar { get; }
         public UnitOfWork(string connectionString)
         {
             ILogin = new LoginRepository(connectionString);
+            ICalendar = new calendarRepository(connectionString);
         }        
     }
 }

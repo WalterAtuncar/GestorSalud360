@@ -38,11 +38,6 @@ namespace Business.Logic.ILogic.calendar
             return _unitOfWork.ICalendar.Update(obj);
         }
 
-        public bool Delete(Models.Entities.calendar.calendar obj)
-        {
-            return _unitOfWork.ICalendar.Delete(obj);
-        }
-
         public IEnumerable<ListaAgendaDTO> ObtenerListaAgendados(FiltroAgendaDTO obj)
         {
             return _unitOfWork.ICalendar.ObtenerListaAgendados(obj);

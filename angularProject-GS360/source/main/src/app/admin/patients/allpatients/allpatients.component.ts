@@ -14,15 +14,12 @@ import {
 import { FormDialogComponent } from './dialog/form-dialog/form-dialog.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
 import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Direction } from '@angular/cdk/bidi';
 import {
-  TableExportUtil,
-  TableElement,
   UnsubscribeOnDestroyAdapter,
 } from '@shared';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-allpatients',
@@ -42,15 +39,16 @@ export class AllpatientsComponent
     'mobile',
     'date',
     'bGroup',
-    'treatment',
     'actions',
   ];
   exampleDatabase?: PatientService;
   dataSource!: ExampleDataSource;
   selection = new SelectionModel<Patient>(true, []);
   index?: number;
-  id?: number;
+  id?: string;
   patient?: Patient;
+  patients: Patient[] = [];
+  isTblLoading = false;
   constructor(
     public httpClient: HttpClient,
     public dialog: MatDialog,
@@ -65,7 +63,11 @@ export class AllpatientsComponent
   sort!: MatSort;
   @ViewChild('filter', { static: true }) filter?: ElementRef;
   ngOnInit() {
+    this.paginator.pageSize = 10;
     this.loadData();
+  }
+  override ngOnDestroy() {
+    this.dataSource.disconnect();
   }
   refresh() {
     this.loadData();
@@ -102,7 +104,7 @@ export class AllpatientsComponent
     });
   }
   editCall(row: Patient) {
-    this.id = row.id;
+    this.id = row.personId;
     let tempDirection: Direction;
     if (localStorage.getItem('isRtl') === 'true') {
       tempDirection = 'rtl';
@@ -120,7 +122,7 @@ export class AllpatientsComponent
       if (result === 1) {
         // When using an edit things are little different, firstly we find record inside DataService by id
         const foundIndex = this.exampleDatabase?.dataChange.value.findIndex(
-          (x) => x.id === this.id
+          (x) => x.personId === this.id
         );
         // Then you update that record using data from dialogData (values you enetered)
         if (foundIndex != null && this.exampleDatabase) {
@@ -139,7 +141,7 @@ export class AllpatientsComponent
     });
   }
   deleteItem(row: Patient) {
-    this.id = row.id;
+    this.id = row.personId;
     let tempDirection: Direction;
     if (localStorage.getItem('isRtl') === 'true') {
       tempDirection = 'rtl';
@@ -153,7 +155,7 @@ export class AllpatientsComponent
     this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
       if (result === 1) {
         const foundIndex = this.exampleDatabase?.dataChange.value.findIndex(
-          (x) => x.id === this.id
+          (x) => x.personId === this.id
         );
         // for delete we use splice in order to remove single object from DataService
         if (foundIndex != null && this.exampleDatabase) {
@@ -175,21 +177,22 @@ export class AllpatientsComponent
   }
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
+    /*const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.renderedData.length;
-    return numSelected === numRows;
+    return numSelected === numRows;*/
+    return false;
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
-    this.isAllSelected()
+    /*this.isAllSelected()
       ? this.selection.clear()
       : this.dataSource.renderedData.forEach((row) =>
           this.selection.select(row)
-        );
+        );*/
   }
   removeSelectedRows() {
-    const totalSelect = this.selection.selected.length;
+   /*const totalSelect = this.selection.selected.length;
     this.selection.selected.forEach((item) => {
       const index: number = this.dataSource.renderedData.findIndex(
         (d) => d === item
@@ -204,14 +207,13 @@ export class AllpatientsComponent
       totalSelect + ' Record Delete Successfully...!!!',
       'bottom',
       'center'
-    );
+    );*/
   }
   public loadData() {
     this.exampleDatabase = new PatientService(this.httpClient);
     this.dataSource = new ExampleDataSource(
       this.exampleDatabase,
-      this.paginator,
-      this.sort
+      this.paginator
     );
     this.subs.sink = fromEvent(this.filter?.nativeElement, 'keyup').subscribe(
       () => {
@@ -221,12 +223,22 @@ export class AllpatientsComponent
         this.dataSource.filter = this.filter?.nativeElement.value;
       }
     );
+    this.subscribeToData();
+  }
+  subscribeToData() {
+    this.isTblLoading = true;
+    this.dataSource.connect().subscribe(data => {
+      this.patients = data;
+      this.isTblLoading = false;
+    });
+  
+    // Asegúrate de desuscribirte en ngOnDestroy
   }
   // export table data in excel file
   exportExcel() {
     // key name with space add in brackets
-    const exportData: Partial<TableElement>[] =
-      this.dataSource.filteredData.map((x) => ({
+    //const exportData: Partial<TableElement>[] = {}
+      /*this.dataSource.filteredData.map((x) => ({
         Name: x.name,
         Gender: x.gender,
         Address: x.address,
@@ -234,8 +246,8 @@ export class AllpatientsComponent
         'Blood Group': x.bGroup,
         Mobile: x.mobile,
         Treatment: x.treatment,
-      }));
-    TableExportUtil.exportToExcel(exportData, 'excel');
+      }));*/
+    //TableExportUtil.exportToExcel(exportData, 'excel');
   }
 
   showNotification(
@@ -253,98 +265,65 @@ export class AllpatientsComponent
   }
 }
 export class ExampleDataSource extends DataSource<Patient> {
-  filterChange = new BehaviorSubject('');
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  private patientsSubject = new BehaviorSubject<Patient[]>([]);
+
+  public loading$ = this.loadingSubject.asObservable();
+  
+  filterChange = new BehaviorSubject<string>('');
   get filter(): string {
     return this.filterChange.value;
   }
   set filter(filter: string) {
     this.filterChange.next(filter);
   }
-  filteredData: Patient[] = [];
-  renderedData: Patient[] = [];
+
   constructor(
-    public exampleDatabase: PatientService,
-    public paginator: MatPaginator,
-    public _sort: MatSort
+    private patientService: PatientService,
+    private paginator: MatPaginator
   ) {
     super();
-    // Reset to the first page when the user changes the filter.
-    this.filterChange.subscribe(() => (this.paginator.pageIndex = 0));
+    // Inicializar la carga de datos
+    this.loadPatients();
   }
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Patient[]> {
-    // Listen for any changes in the base data, sorting, filtering, or pagination
-    const displayDataChanges = [
-      this.exampleDatabase.dataChange,
-      this._sort.sortChange,
-      this.filterChange,
-      this.paginator.page,
-    ];
-    this.exampleDatabase.getAllPatients();
-    return merge(...displayDataChanges).pipe(
-      map(() => {
-        // Filter data
-        this.filteredData = this.exampleDatabase.data
-          .slice()
-          .filter((patient: Patient) => {
-            const searchStr = (
-              patient.name +
-              patient.gender +
-              patient.address +
-              patient.date +
-              patient.bGroup +
-              patient.treatment +
-              patient.mobile
-            ).toLowerCase();
-            return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
-          });
-        // Sort filtered data
-        const sortedData = this.sortData(this.filteredData.slice());
-        // Grab the page's slice of the filtered sorted data.
-        const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-        this.renderedData = sortedData.splice(
-          startIndex,
-          this.paginator.pageSize
-        );
-        return this.renderedData;
-      })
-    );
-  }
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  disconnect() {}
-  /** Returns a sorted copy of the database data. */
-  sortData(data: Patient[]): Patient[] {
-    if (!this._sort.active || this._sort.direction === '') {
-      return data;
+
+  // Método para cargar pacientes según la paginación y el filtro actual
+  loadPatients() {
+    // eslint-disable-next-line no-debugger
+    //debugger;
+    if (this.loadingSubject.value) {
+      return; 
     }
-    return data.sort((a, b) => {
-      let propertyA: number | string = '';
-      let propertyB: number | string = '';
-      switch (this._sort.active) {
-        case 'id':
-          [propertyA, propertyB] = [a.id, b.id];
-          break;
-        case 'name':
-          [propertyA, propertyB] = [a.name, b.name];
-          break;
-        case 'gender':
-          [propertyA, propertyB] = [a.gender, b.gender];
-          break;
-        case 'date':
-          [propertyA, propertyB] = [a.date, b.date];
-          break;
-        case 'address':
-          [propertyA, propertyB] = [a.address, b.address];
-          break;
-        case 'mobile':
-          [propertyA, propertyB] = [a.mobile, b.mobile];
-          break;
-      }
-      const valueA = isNaN(+propertyA) ? propertyA : +propertyA;
-      const valueB = isNaN(+propertyB) ? propertyB : +propertyB;
-      return (
-        (valueA < valueB ? -1 : 1) * (this._sort.direction === 'asc' ? 1 : -1)
-      );
+
+    this.loadingSubject.next(true);
+    this.patientService.getPatientsPage(
+      this.paginator.pageIndex + 1, // Asegúrate de que la paginación en el backend empieza en 1
+      this.paginator.pageSize,
+      this.filter
+    ).subscribe((data) => {
+      console.log("data", data)
+      this.loadingSubject.next(false);
+      this.patientsSubject.next(data.patients);
+      this.paginator.length = data.totalRows; // Actualizar el total de elementos para el paginador
+    }, (error : unknown)=> {
+      this.loadingSubject.next(false);
+      console.log("err", error)
     });
   }
+
+  connect(): Observable<Patient[]> {
+    // Escuchar cambios en el filtro o en la paginación para recargar los pacientes
+    merge(this.filterChange, this.paginator.page)
+      .pipe(
+        tap(() => this.loadPatients())
+      ).subscribe();
+
+    return this.patientsSubject.asObservable();
+  }
+
+  disconnect(): void {
+    this.patientsSubject.complete();
+    this.loadingSubject.complete();
+  }
 }
+

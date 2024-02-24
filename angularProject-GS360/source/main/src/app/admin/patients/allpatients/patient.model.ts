@@ -1,30 +1,34 @@
 export class Patient {
-  id: number;
-  img: string;
+  personId: string;
+  personImage64: string | null; // null o la URL de la imagen
+  docNumber: string;
   name: string;
+  sexTypeId: number;
   gender: string;
-  bGroup: string;
-  date: string;
-  address: string;
-  mobile: string;
-  treatment: string;
-  constructor(patient: Patient) {
-    {
-      this.id = patient.id || this.getRandomID();
-      this.img = patient.img || 'assets/images/user/user1.jpg';
-      this.name = patient.name || '';
-      this.gender = patient.gender || 'Masculino';
-      this.bGroup = patient.bGroup || '';
-      this.date = patient.date || '';
-      this.address = patient.address || '';
-      this.mobile = patient.mobile || '';
-      this.treatment = patient.treatment || '';
-    }
+  addressLocation: string;
+  telephoneNumber: string;
+  birthdate: string;
+
+  constructor(patient: any) { // Cambia 'any' por una interfaz más específica si es necesario
+    this.personId = patient.personId;
+    this.docNumber = patient.docNumber;
+    this.name = patient.name;
+    this.sexTypeId = patient.sexTypeId;
+    this.gender = patient.gender;
+    this.addressLocation = patient.addressLocation;
+    this.telephoneNumber = patient.telephoneNumber;
+    this.birthdate = patient.birthdate;
+
+    // Convertir byte[] a una URL de imagen en Base64 o usar imagen predeterminada si es null
+    this.personImage64 ='https://images.freeimages.com/fic/images/icons/766/base_software/256/user1.png';
   }
-  public getRandomID(): number {
-    const S4 = () => {
-      return ((1 + Math.random()) * 0x10000) | 0;
-    };
-    return S4() + S4();
-  }
+}
+
+export interface PaginationParams {
+  page: number;
+  pageSize: number;
+}
+
+export interface Filter extends PaginationParams {
+  filter: string;
 }

@@ -12,6 +12,5 @@ namespace Repositories
         int Insert(T entity);
         IEnumerable<T> GetList();
         T GetById(string id);
-        bool Delete(T entity);
     }
 }

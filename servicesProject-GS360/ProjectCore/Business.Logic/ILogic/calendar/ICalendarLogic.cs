@@ -14,7 +14,6 @@ namespace Business.Logic.ILogic.calendar
         int Insert(Models.Entities.calendar.calendar obj);
         IEnumerable<Models.Entities.calendar.calendar> GetList();
         Models.Entities.calendar.calendar GetById(string id);
-        bool Delete(Models.Entities.calendar.calendar obj);
         IEnumerable<ListaAgendaDTO> ObtenerListaAgendados(FiltroAgendaDTO obj);
     }
 }

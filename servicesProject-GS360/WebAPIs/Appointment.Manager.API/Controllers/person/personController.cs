@@ -1,20 +1,21 @@
-﻿using Business.Logic.ILogic.calendar;
+﻿using Business.Logic.ILogic.person;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.Request;
+using Models.Response.person;
 
-namespace Appointment.Manager.API.Controllers.calendar
+namespace Appointment.Manager.API.Controllers.person
 {
-    [Route("api/calendar")]
+    [Route("api/person")]
     [ApiController]
-    public class calendarController : ControllerBase
+    public class personController : ControllerBase
     {
-        private ICalendarLogic _calendar;
+        private IPersonLogic _person;
         public ResponseDTO _ResponseDTO;
-        public calendarController(ICalendarLogic calendar)
+        public personController(IPersonLogic person)
         {
-            _calendar = calendar;
+            _person = person;
         }
 
         [HttpGet]
@@ -23,7 +24,7 @@ namespace Appointment.Manager.API.Controllers.calendar
             _ResponseDTO = new ResponseDTO();
             try
             {
-                return Ok(_ResponseDTO.Success(_ResponseDTO, _calendar.GetList()));
+                return Ok(_ResponseDTO.Success(_ResponseDTO, _person.GetList()));
             }
             catch (Exception e)
             {
@@ -32,13 +33,13 @@ namespace Appointment.Manager.API.Controllers.calendar
         }
 
         [HttpGet]
-        [Route("GetById/{id}")]
+        [Route("GetByIdString/{id}")]
         public IActionResult GetByIdString(string id)
         {
             _ResponseDTO = new ResponseDTO();
             try
             {
-                return Ok(_ResponseDTO.Success(_ResponseDTO, _calendar.GetById(id)));
+                return Ok(_ResponseDTO.Success(_ResponseDTO, _person.GetByIdString(id)));
             }
             catch (Exception e)
             {
@@ -47,12 +48,12 @@ namespace Appointment.Manager.API.Controllers.calendar
         }
 
         [HttpPost]
-        public IActionResult Insert([FromBody] Models.Entities.calendar.calendar obj)
+        public IActionResult Insert([FromBody] Models.Entities.person obj)
         {
             _ResponseDTO = new ResponseDTO();
             try
             {
-                return Ok(_ResponseDTO.Success(_ResponseDTO, _calendar.Insert(obj)));
+                return Ok(_ResponseDTO.Success(_ResponseDTO, _person.Insert(obj)));
             }
             catch (Exception e)
             {
@@ -61,13 +62,14 @@ namespace Appointment.Manager.API.Controllers.calendar
         }
 
         [HttpPost]
-        [Route("ObtenerListaAgendados")]
-        public IActionResult ObtenerListaAgendados([FromBody] FiltroAgendaDTO obj)
+        [Route("BuscarPersonasConFiltro")]
+        public IActionResult BuscarPersonasConFiltro([FromBody] FilterParams obj)
         {
             _ResponseDTO = new ResponseDTO();
             try
             {
-                return Ok(_ResponseDTO.Success(_ResponseDTO, _calendar.ObtenerListaAgendados(obj)));
+                PatientsList patients = _person.BuscarPersonasConFiltro(obj);
+                return Ok(_ResponseDTO.Success(_ResponseDTO, patients));
             }
             catch (Exception e)
             {
@@ -76,12 +78,12 @@ namespace Appointment.Manager.API.Controllers.calendar
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] Models.Entities.calendar.calendar obj)
+        public IActionResult Update([FromBody] Models.Entities.person obj)
         {
             _ResponseDTO = new ResponseDTO();
             try
             {
-                return Ok(_ResponseDTO.Success(_ResponseDTO, _calendar.Update(obj)));
+                return Ok(_ResponseDTO.Success(_ResponseDTO, _person.Update(obj)));
             }
             catch (Exception e)
             {

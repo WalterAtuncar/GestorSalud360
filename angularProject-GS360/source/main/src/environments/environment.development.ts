@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiAppointment: 'https://localhost:7054/api',
   apiUrl: 'http://localhost:4200',
 };
 

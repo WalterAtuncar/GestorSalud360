@@ -24,6 +24,7 @@ namespace Gestion.Salud._360.Services.Controllers
             _ResponseDTO = new ResponseDTO();
             try
             {
+                Thread.Sleep(5000);
                 var user = _login.Login(obj);
                 if (user != null)
                 {

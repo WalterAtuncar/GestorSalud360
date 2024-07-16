@@ -8,10 +8,14 @@ namespace Models.Response.Login
 {
     public class UserResponseDTO
     {
-        public int i_SystemUserId { get; set; }
-        public string v_UserName { get; set; }
-        public string v_PersonId { get; set; }
-        public int? i_RolVentaId { get; set; } 
-        public int? i_ProfesionId { get; set; }
+        public int id { get; set; }
+        public string img { get; set; }
+        public string username { get; set; }
+        public string personId { get; set; }
+        public int? professionId { get; set; } 
+        public int? roleId { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string role { get; set; }
     }
 }

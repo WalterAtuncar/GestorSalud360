@@ -28,7 +28,7 @@ namespace Data.Access.Login
                     parameters.Add("@User", obj.User);
                     parameters.Add("@Password", obj.Password);
 
-                    return connection.Query<UserResponseDTO>("[dbo].[spValidateSystemUser]", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    return connection.Query<UserResponseDTO>("[dbo].[spValidateSystemUser_Login]", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
             }
             catch (SqlException ex)

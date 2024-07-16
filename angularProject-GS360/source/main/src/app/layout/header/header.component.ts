@@ -44,6 +44,8 @@ export class HeaderComponent
   isOpenSidebar?: boolean;
   docElement: HTMLElement | undefined;
   isFullScreen = false;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  userName: string ='';
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -118,6 +120,7 @@ export class HeaderComponent
     this.config = this.configService.configData;
     const userRole = this.authService.currentUserValue.role;
     this.userImg = this.authService.currentUserValue.img;
+    this.userName = this.authService.currentUserValue.username
 
     this.docElement = document.documentElement;
 

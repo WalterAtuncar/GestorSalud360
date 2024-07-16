@@ -71,6 +71,7 @@ export class ViewappointmentComponent
   @ViewChild('filter', { static: true }) filter?: ElementRef;
 
   ngOnInit() {
+    this.paginator.pageSize = 10;
     this.loadData();
   }
   refresh() {

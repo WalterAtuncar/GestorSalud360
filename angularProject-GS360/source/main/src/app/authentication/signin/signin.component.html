@@ -16,7 +16,7 @@
               <button mat-raised-button color="primary" type="button" (click)="adminSet();">Admin</button>
             </div>
             <div>
-              <button mat-raised-button color="accent" type="button" (click)="doctorSet();">Doctor</button>
+              <button mat-raised-button color="accent" type="button" (click)="doctorSet();">Clínica</button>
             </div>
             <div>
               <button mat-raised-button color="warn" type="button" (click)="patientSet();">Paciente</button>
@@ -27,7 +27,7 @@
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Nombre de usuario</mat-label>
+                  <mat-label>Username</mat-label>
                   <input matInput formControlName="username" />
                   <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
                   <mat-error *ngIf="authForm.get('username')!.hasError('required')">
@@ -39,7 +39,7 @@
             <div class="row">
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Contraseña</mat-label>
+                  <mat-label>Password</mat-label>
                   <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
                   <a href="#" onClick="return false;" matSuffix (click)="hide = !hide"
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -55,23 +55,23 @@
             <div class="d-flex justify-content-between align-items-center mb-5">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value=""> Recordarme
+                  <input class="form-check-input" type="checkbox" value=""> Remember me
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
                 </label>
               </div>
-              <a class="txt1" routerLink="/authentication/forgot-password">¿Has olvidado tu contraseña?</a>
+              <a class="txt1" routerLink="/authentication/forgot-password">Forgot Password?</a>
             </div>
             <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
             <div class="container-auth-form-btn">
               <div style="text-align:center">
                 <button mat-raised-button color="primary" [class.auth-spinner]="loading" [disabled]="loading"
-                  class="auth-form-btn" [disabled]="!authForm.valid " type="submit">Iniciar sesión</button>
+                  class="auth-form-btn" [disabled]="!authForm.valid " type="submit">Login</button>
               </div>
             </div>
           </form>
-          <h6 class="social-login-title">Otros</h6>
+          <h6 class="social-login-title">OR</h6>
           <ul class="list-unstyled social-icon mb-0 mt-3">
             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
                 <i class="fab fa-google"></i>

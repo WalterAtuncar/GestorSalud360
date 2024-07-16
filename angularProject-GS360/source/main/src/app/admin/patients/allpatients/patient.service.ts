@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Patient } from './patient.model';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
+import { Filter, Patient } from './patient.model';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { UnsubscribeOnDestroyAdapter } from '@shared';
+import { environment } from 'environments/environment.development';
 @Injectable()
 export class PatientService extends UnsubscribeOnDestroyAdapter {
+
   private readonly API_URL = 'assets/data/patient.json';
   isTblLoading = true;
   dataChange: BehaviorSubject<Patient[]> = new BehaviorSubject<Patient[]>([]);
@@ -32,6 +34,37 @@ export class PatientService extends UnsubscribeOnDestroyAdapter {
       },
     });
   }
+  // Nuevo método para paginación
+  getPatientsPage(page: number, pageSize: number, filter: string): Observable<any> {
+      const filterParams: Filter ={
+        filter: filter,
+        page: page,
+        pageSize: pageSize
+      }
+    // Asume que tu API retorna un objeto con los pacientes y el total de filas
+    return this.httpClient.post<any>(`${environment.apiAppointment}/person/BuscarPersonasConFiltro`, filterParams)
+      .pipe(
+        map(response => {
+          // Verificar si el status es 1 y si objModel está presente
+          if (response.status === 1 && response.objModel) {
+            // Extraer y retornar los pacientes y el totalRows de objModel
+            return {
+              patients: response.objModel.patients,
+              totalRows: response.objModel.totalRows
+            };
+          } else {
+            // Si el status no es 1, lanzar un error
+            return throwError(() => new Error('Failed to load the patients data'));
+          }
+        }),
+        catchError(error => {
+          // Manejar cualquier error de la solicitud HTTP
+          console.error('Error fetching patients:', error);
+          return throwError(() => new Error('Error fetching patients'));
+        })
+      );
+  }
+
   addPatient(patient: Patient): void {
     this.dialogData = patient;
 

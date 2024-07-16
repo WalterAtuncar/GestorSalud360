@@ -5,6 +5,9 @@ export class User {
   img!: string;
   username!: string;
   password!: string;
+  personId! : string | null;
+  professionId!: number | null;
+  roleId!: number | null;
   firstName!: string;
   lastName!: string;
   role!: Role;

@@ -56,15 +56,15 @@ export class FormDialogComponent {
   }
   createContactForm(): UntypedFormGroup {
     return this.fb.group({
-      id: [this.patient.id],
-      img: [this.patient.img],
+      id: [this.patient.personId],
+      img: [this.patient.personImage64],
       name: [this.patient.name],
-      gender: [this.patient.gender],
-      date: [this.patient.date],
-      bGroup: [this.patient.bGroup],
-      mobile: [this.patient.mobile],
-      address: [this.patient.address],
-      treatment: [this.patient.treatment],
+      gender: [this.patient.sexTypeId],
+      date: [this.patient.birthdate],
+      bGroup: [this.patient.docNumber],
+      mobile: [this.patient.telephoneNumber],
+      address: [this.patient.addressLocation],
+      treatment: [''],
     });
   }
   submit() {

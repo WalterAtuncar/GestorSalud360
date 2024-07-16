@@ -181,7 +181,7 @@ export class MainComponent implements OnInit {
     this.smallChart3Options = {
       series: [
         {
-          name: 'New Patients',
+          name: 'Nuevos pacientes',
           data: [
             50, 61, 80, 50, 72, 52, 60, 41, 30, 45, 70, 40, 93, 63, 50, 62,
           ],
@@ -309,11 +309,11 @@ export class MainComponent implements OnInit {
     this.areaChartOptions = {
       series: [
         {
-          name: 'New Patients',
+          name: 'Nuevos pacientes',
           data: [31, 40, 28, 51, 42, 85, 77],
         },
         {
-          name: 'Old Patients',
+          name: 'Viejos pacientes ',
           data: [11, 32, 45, 32, 34, 52, 41],
         },
       ],
@@ -372,11 +372,11 @@ export class MainComponent implements OnInit {
     this.barChartOptions = {
       series: [
         {
-          name: 'Colds and Flu',
+          name: 'Resfriados y gripe',
           data: [44, 55, 41, 67, 22, 43],
         },
         {
-          name: 'Headaches',
+          name: 'Dolores de cabeza',
           data: [13, 23, 20, 8, 13, 27],
         },
         {
@@ -384,7 +384,7 @@ export class MainComponent implements OnInit {
           data: [11, 17, 15, 15, 21, 14],
         },
         {
-          name: 'Typhoid',
+          name: 'Tifoidea',
           data: [21, 7, 25, 13, 22, 8],
         },
       ],
@@ -425,7 +425,7 @@ export class MainComponent implements OnInit {
       },
       xaxis: {
         type: 'category',
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        categories: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
       },
       legend: {
         show: false,

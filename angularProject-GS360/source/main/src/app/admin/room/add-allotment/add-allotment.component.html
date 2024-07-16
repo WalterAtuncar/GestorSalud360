@@ -2,13 +2,13 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'New Allotment'" [items]="['Room']" [active_item]="'New Allotment'"></app-breadcrumb>
+      <app-breadcrumb [title]="'Nueva asignación'" [items]="['Habitación']" [active_item]="'Nueva asignación'"></app-breadcrumb>
     </div>
     <div class="row clearfix">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <div class="card">
           <div class="header">
-            <h2><strong> New Allotment</strong></h2>
+            <h2><strong> Nueva asignación</strong></h2>
 
           </div>
           <div class="body">
@@ -16,10 +16,10 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Room No</mat-label>
+                    <mat-label>Nro.habitación</mat-label>
                     <input matInput formControlName="rNo" required>
                     <mat-error *ngIf="roomForm.get('rNo')?.hasError('required')">
-                      Room Number is required
+                      Se requiere el número de habitación
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -27,23 +27,23 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Room Type</mat-label>
+                    <mat-label>Tipo de habitación</mat-label>
                     <mat-select formControlName="rType" required>
                       <mat-option [value]="'1'">
                         General
                       </mat-option>
                       <mat-option [value]="'2'">
-                        Delux
+                        De lujo
                       </mat-option>
                       <mat-option [value]="'3'">
-                        Super Delux
+                        Super lujo
                       </mat-option>
                       <mat-option [value]="'4'">
                         ICU
                       </mat-option>
                     </mat-select>
                     <mat-error *ngIf="roomForm.get('rType')?.hasError('required')">
-                      Room Type is required
+                      Se requiere tipo de habitación
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -51,10 +51,10 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Patient Name</mat-label>
+                    <mat-label>Nombre del paciente</mat-label>
                     <input matInput formControlName="pName" required>
                     <mat-error *ngIf="roomForm.get('pName')?.hasError('required')">
-                      Patient Name is required
+                      El nombre del paciente es obligatorio
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -62,12 +62,12 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Allotment Date</mat-label>
+                    <mat-label>Fecha de adjudicación</mat-label>
                     <input matInput [matDatepicker]="picker" formControlName="aDate" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-error *ngIf="roomForm.get('aDate')?.hasError('required')">
-                      Please select date
+                      Por favor seleccione fecha
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -75,12 +75,12 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Discharge Date</mat-label>
+                    <mat-label>Fecha de alta</mat-label>
                     <input matInput [matDatepicker]="picker1" formControlName="dDate" required>
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
                     <mat-error *ngIf="roomForm.get('dDate')?.hasError('required')">
-                      Please select date
+                      Por favor seleccione fecha
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -88,8 +88,8 @@
               <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                   <button class="btn-space" [disabled]="!roomForm.valid " mat-raised-button
-                    color="primary">Submit</button>
-                  <button type="button" mat-raised-button color="warn">Cancel</button>
+                    color="primary">Entregar</button>
+                  <button type="button" mat-raised-button color="warn">Cancelar</button>
                 </div>
               </div>
             </form>

@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  apiAppointment: 'https://localhost:7054/api',
+  apiLogin:'https://localhost:7266/api',
   apiUrl: 'http://localhost:4200',
 };
 

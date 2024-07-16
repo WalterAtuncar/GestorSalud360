@@ -8,21 +8,21 @@
       <div class="form-section">
         <div class="auth-wrapper">
           <h2 class="welcome-msg"> Bienvenido a Salud Gestor 360 </h2>
-          <p class="auth-signup-text text-muted">Need an account?<a routerLink="/authentication/signup"
-              class="sign-up-link">Sign Up
+          <p class="auth-signup-text text-muted">¿Necesitas una cuenta?<a routerLink="/authentication/signup"
+              class="sign-up-link">Resgistrate aquí
             </a></p>
           <div class="d-flex justify-content-between lbl-alert mb-3">
             <div>
               <button mat-raised-button color="primary" type="button" (click)="adminSet();">Admin</button>
             </div>
             <div>
-              <button mat-raised-button color="accent" type="button" (click)="doctorSet();">Doctor</button>
+              <button mat-raised-button color="accent" type="button" (click)="doctorSet();">Clínica</button>
             </div>
             <div>
-              <button mat-raised-button color="warn" type="button" (click)="patientSet();">Patient</button>
+              <button mat-raised-button color="warn" type="button" (click)="patientSet();">Paciente</button>
             </div>
           </div>
-          <h2 class="login-title">Sign in</h2>
+          <h2 class="login-title">Iniciar sesión</h2>
           <form class="validate-form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
